@@ -17,8 +17,7 @@ export const serverReducer = (state = initialState, action) => {
       return {
         ...state,
         isFetching: false,
-        data: action.data,
-        ids: action.ids
+        data: action.data
       };
     case SEARCH:
       const { value } = action;
