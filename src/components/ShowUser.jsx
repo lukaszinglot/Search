@@ -61,10 +61,10 @@ class ShowUser extends Component {
   render() {
     return (
       <div className={showUserStyles.user}>
-        <h1>Users List</h1>
+        <h1>Users list</h1>
         <input
           type="text"
-          placeholder="Search by username"
+          placeholder="Search by user name"
           onChange={this.updateSearch}
           value={this.state.search}
           className={showUserStyles.inputUser}
