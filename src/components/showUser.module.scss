@@ -16,8 +16,19 @@ h1 {
 .inputUser {
     width: 350px;
     height: 24px;
-    border: 1px solid black;
+    border: 2px solid black;
     margin-bottom: 24px;
     color: gray;
     font-size: 18px;
+    text-indent: 16px;
+}
+
+::placeholder {
+    margin-left: 6px
+}
+
+.username {
+    color: gray;
+    margin-left: 6px;
+    font-size: 16px;
 }
