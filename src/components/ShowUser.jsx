@@ -31,11 +31,21 @@ class ShowUser extends Component {
     const { users, search } = this.props;
     if (search.length) {
       return search.map(({ id, name, username }, index) => {
-        return <div key={id}>{`${index + 1}. ${name}  @${username}`}</div>;
+        return (
+          <div key={id}>
+            {`${index + 1}. ${name}  `}
+            <span className={showUserStyles.username}>{` @${username}`}</span>
+          </div>
+        );
       });
     } else {
       return users.map(({ id, name, username }, index) => {
-        return <div key={id}>{`${index + 1}. ${name}  @${username}`}</div>;
+        return (
+          <div key={id}>
+            {`${index + 1}. ${name}  `}
+            <span className={showUserStyles.username}>{` @${username}`}</span>
+          </div>
+        );
       });
     }
   }
