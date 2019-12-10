@@ -33,7 +33,8 @@ class ShowUser extends Component {
       return search.map(({ id, name, username }, index) => {
         return (
           <div key={id}>
-            {`${index + 1}. ${name}  `}
+            <span className={showUserStyles.username}>{`${index + 1}.`}</span>
+            {name}
             <span className={showUserStyles.username}>{` @${username}`}</span>
           </div>
         );
@@ -42,7 +43,8 @@ class ShowUser extends Component {
       return users.map(({ id, name, username }, index) => {
         return (
           <div key={id}>
-            {`${index + 1}. ${name}  `}
+            <span className={showUserStyles.username}>{`${index + 1}.`}</span>
+            {name}
             <span className={showUserStyles.username}>{` @${username}`}</span>
           </div>
         );
