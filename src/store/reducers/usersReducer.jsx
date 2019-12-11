@@ -1,12 +1,11 @@
-import { SERVER_REQUEST, GET_USERS, SEARCH } from "../actions/actionTypes.js";
+import { SERVER_REQUEST, GET_USERS } from "../actions/actionTypes.js";
 
 const initialState = {
   data: [],
-  isFetching: false,
-  filtered: []
+  isFetching: false
 };
 
-export const serverReducer = (state = initialState, action) => {
+export const userReducer = (state = initialState, action) => {
   switch (action.type) {
     case SERVER_REQUEST:
       return {
@@ -19,16 +18,9 @@ export const serverReducer = (state = initialState, action) => {
         isFetching: false,
         data: action.data
       };
-    case SEARCH:
-      const { value } = action;
-      const filtered = state.data.filter(({ name }) =>
-        name.toLowerCase().includes(value.toLowerCase())
-      );
-      return { ...state, value, filtered };
-
     default:
       return state;
   }
 };
 
-export default serverReducer;
+export default userReducer;
