@@ -1,34 +1,28 @@
 import baseUrl from "../../api/jsonPlaceholder";
-import {
-  GET_USERS,
-  SERVER_REQUEST,
-  SEARCH
-} from "./actionTypes";
+import { GET_USERS, SERVER_REQUEST, SEARCH } from "./actionTypes";
 
 export const getServersRequest = () => ({
   type: SERVER_REQUEST
 });
 
-export const fetchUsers = (data) => {
+export const fetchUsers = data => {
   return {
     type: GET_USERS,
     data
   };
 };
 
-export const getSearch = (value) => {
+export const getSearch = text => {
   return {
     type: SEARCH,
-    value
-  }
-}
+    text
+  };
+};
 
 export const getUsers = () => (dispatch, getState) => {
-  if (!getState().usersReducer.isFetching) {
+  if (!getState().userReducer.isFetching) {
     dispatch(getServersRequest());
-    baseUrl.get("/users").then(({
-      data
-    }) => {
+    baseUrl.get("/users").then(({ data }) => {
       dispatch(fetchUsers(data));
     });
   }
