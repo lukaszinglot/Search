@@ -1,11 +1,12 @@
 import React, { Component } from "react";
 import { connect } from "react-redux";
-import { getSearch } from "../store/actions/userActions";
+import { setSearch } from "../store/actions/userActions";
 import userSearchStyles from "./userSearch.module.scss";
 
 class UserSearch extends Component {
   handleSearchChange = e => {
-    this.props.getSearch(e.target.value);
+    const { setSearch } = this.props;
+    setSearch(e.target.value);
   };
   render() {
     return (
@@ -22,10 +23,10 @@ class UserSearch extends Component {
 
 const mapStateToProps = state => {
   return {
-    search: state.searchReducer
+    search: state.userReducer.text
   };
 };
 
-const mapDispatchToProps = { getSearch };
+const mapDispatchToProps = { setSearch };
 
 export default connect(mapStateToProps, mapDispatchToProps)(UserSearch);
