@@ -1,11 +1,11 @@
 import React from "react";
 import userListStyles from "./userList.module.scss";
 import { connect } from "react-redux";
-import { getFilteredUsers } from "../store/selectors/getFilteredUsers";
+import SelectedUser from "../store/selectors/index";
 
-const UserList = ({ userList }) => {
-  if (userList) {
-    return userList.map(({ id, name, username }, index) => {
+const UserList = ({ selectedUsers }) => {
+  if (selectedUsers) {
+    return selectedUsers.map(({ id, name, username }, index) => {
       return (
         <div key={id}>
           <span className={userListStyles.username}>{`${index + 1}.`}</span>
@@ -19,7 +19,7 @@ const UserList = ({ userList }) => {
 
 const mapStateToProps = state => {
   return {
-    userList: getFilteredUsers(state.userReducer.data, state.userReducer.text)
+    selectedUsers: SelectedUser(state)
   };
 };
 
