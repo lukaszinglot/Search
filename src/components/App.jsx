@@ -3,10 +3,9 @@ import { connect } from "react-redux";
 import { getUsers } from "../store/actions/userActions";
 import showUserStyles from "./showUser.module.scss";
 import UserSearch from "./UserSearch";
-import { getFilteredUsers } from "../store/selectors/getFilteredUsers";
 import UserList from "./UserList";
 
-class ShowUser extends Component {
+class App extends Component {
   constructor(props) {
     super(props);
     this.state = {};
@@ -20,12 +19,11 @@ class ShowUser extends Component {
   }
 
   render() {
-    const { users } = this.props;
     return (
       <div className={showUserStyles.user}>
         <h1>Users list</h1>
         <UserSearch />
-        <UserList userList={users} />
+        <UserList />
       </div>
     );
   }
@@ -33,10 +31,10 @@ class ShowUser extends Component {
 
 const mapStateToProps = state => {
   return {
-    users: getFilteredUsers(state.userReducer.data, state.searchReducer)
+    users: state.userReducer.data
   };
 };
 
 export default connect(mapStateToProps, {
   getUsers
-})(ShowUser);
+})(App);
