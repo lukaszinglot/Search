@@ -1,8 +1,13 @@
-import { SERVER_REQUEST, GET_USERS } from "../actions/actionTypes.js";
+import {
+  SERVER_REQUEST,
+  GET_USERS,
+  SET_SEARCH
+} from "../actions/actionTypes.js";
 
 const initialState = {
   data: [],
-  isFetching: false
+  isFetching: false,
+  text: ""
 };
 
 export const userReducer = (state = initialState, action) => {
@@ -17,6 +22,11 @@ export const userReducer = (state = initialState, action) => {
         ...state,
         isFetching: false,
         data: action.data
+      };
+    case SET_SEARCH:
+      return {
+        ...state,
+        text: action.text
       };
     default:
       return state;
