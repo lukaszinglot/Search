@@ -1,5 +1,5 @@
 import baseUrl from "../../api/jsonPlaceholder";
-import { GET_USERS, SERVER_REQUEST, SEARCH } from "./actionTypes";
+import { GET_USERS, SERVER_REQUEST, SET_SEARCH } from "./actionTypes";
 
 export const getServersRequest = () => ({
   type: SERVER_REQUEST
@@ -12,9 +12,9 @@ export const fetchUsers = data => {
   };
 };
 
-export const getSearch = text => {
+export const setSearch = text => {
   return {
-    type: SEARCH,
+    type: SET_SEARCH,
     text
   };
 };
