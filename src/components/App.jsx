@@ -29,9 +29,9 @@ class App extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ userReducer }) => {
   return {
-    users: state.userReducer.data
+    users: userReducer.data
   };
 };
 
