@@ -7,7 +7,7 @@ import {
 const initialState = {
   data: [],
   isFetching: false,
-  text: ""
+  searchValue: ""
 };
 
 export const userReducer = (state = initialState, action) => {
@@ -26,7 +26,7 @@ export const userReducer = (state = initialState, action) => {
     case SET_SEARCH:
       return {
         ...state,
-        text: action.text
+        searchValue: action.searchValue
       };
     default:
       return state;
