@@ -12,10 +12,10 @@ export const fetchUsers = data => {
   };
 };
 
-export const setSearch = text => {
+export const setSearch = searchValue => {
   return {
     type: SET_SEARCH,
-    text
+    searchValue
   };
 };
 
