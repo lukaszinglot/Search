@@ -21,9 +21,9 @@ class UserSearch extends Component {
   }
 }
 
-const mapStateToProps = state => {
+const mapStateToProps = ({ userReducer }) => {
   return {
-    search: state.userReducer.text
+    search: userReducer.searchValue
   };
 };
 
